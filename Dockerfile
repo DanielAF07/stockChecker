@@ -1,10 +1,4 @@
-FROM playwright/base
-
-ENV NODE_ENV=production
-
-ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
-
-ARG NPM_LOGLEVEL=info
+FROM mcr.microsoft.com/playwright:bionic
 
 RUN npm install --loglevel ${NPM_LOGLEVEL} --force
 
