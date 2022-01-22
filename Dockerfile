@@ -16,6 +16,6 @@ RUN rm yarn.lock
 
 RUN npm install --loglevel ${NPM_LOGLEVEL} --force
 
-CMD [ "node", "index.js" ]
+CMD [ "node", "build/src/index.js" ]
 
 EXPOSE 3000/tcp
