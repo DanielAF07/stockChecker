@@ -6,7 +6,7 @@ ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
 
 ARG NPM_LOGLEVEL=info
 
-RUN yarn
+RUN npm install --loglevel ${NPM_LOGLEVEL} --force
 
 CMD [ "node", "index.js" ]
 
