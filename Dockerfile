@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/playwright:bionic
 
-RUN npm install --loglevel ${NPM_LOGLEVEL} --force
+RUN npm install
 
 CMD [ "node", "index.js" ]
 
