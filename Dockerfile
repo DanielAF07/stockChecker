@@ -2,20 +2,12 @@ FROM playwright/base
 
 ENV NODE_ENV=production
 
-USER pwuser
-
 ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
-
-WORKDIR /home/pwuser
 
 ARG NPM_LOGLEVEL=info
 
-COPY . .
+RUN yarn
 
-RUN rm yarn.lock
-
-RUN npm install --loglevel ${NPM_LOGLEVEL} --force
-
-CMD [ "node", "build/src/index.js" ]
+CMD [ "node", "index.js" ]
 
 EXPOSE 3000/tcp
