@@ -25,7 +25,7 @@ const stores = {
       try {
         const content = await page.textContent('span[itemprop="price"]')
         const price = content.slice(1, content.indexOf('.'))
-        const hasStock = parseInt(price) <= 500
+        const hasStock = parseInt(price) <= 900
         if (hasStock) return true
         return false
       } catch (error) {
