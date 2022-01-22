@@ -1,7 +1,8 @@
 FROM mcr.microsoft.com/playwright:bionic
-
+USER root
+WORKDIR /automation
+COPY package.json ./
 RUN npm install
 
-CMD [ "node", "index.js" ]
-
-EXPOSE 3000/tcp
+COPY . ./
+RUN npm start
