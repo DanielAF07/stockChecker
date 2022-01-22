@@ -9,6 +9,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 RUN yarn
+RUN npx playwright install-deps
 # If you are building your code for production
 # RUN npm ci --only=production
 
