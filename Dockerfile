@@ -1,20 +1,21 @@
-FROM node:16
+FROM playwright/base
 
-# Create app directory
-WORKDIR /usr/src/app
+ENV NODE_ENV=production
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
+USER pwuser
 
-RUN yarn
-RUN npx playwright install-deps
-# If you are building your code for production
-# RUN npm ci --only=production
+ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
 
-# Bundle app source
+WORKDIR /home/pwuser
+
+ARG NPM_LOGLEVEL=info
+
 COPY . .
 
-EXPOSE 8080
-CMD [ "node", "index.js" ]
+RUN rm yarn.lock
+
+RUN npm install --loglevel ${NPM_LOGLEVEL} --force
+
+CMD [ "node", "build/src/main.js" ]
+
+EXPOSE 3000/tcp
