@@ -38,6 +38,7 @@ const stores = {
 const checkStock = async () => {
   const browser = await chromium.launch({ headless: false })
   for (const store in stores) {
+    console.log(`Checking ${store}`);
     if (await stores[store].hasStock(browser)) {
       const body = {
         content: `🔥 ${stores[store].name} has stock! 🔥 @everyone`,
@@ -49,6 +50,6 @@ const checkStock = async () => {
   await browser.close()
 }
 
-cron.schedule('5 * * * *', () => {
+cron.schedule('* * * * *', () => {
   checkStock()
 })
