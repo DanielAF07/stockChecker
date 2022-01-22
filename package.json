@@ -1,0 +1,23 @@
+{
+  "name": "stockchecker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.18.0",
+    "standard": "^16.0.4"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  },
+  "dependencies": {
+    "axios": "^0.25.0",
+    "node-cron": "^3.0.0"
+  }
+}
